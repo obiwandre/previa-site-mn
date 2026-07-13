@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Maria Nascimento — Advogada | Holding Familiar</title>
 <meta name="description" content="Advogada para holding familiar: planejamento sucessório, proteção patrimonial e economia tributária. Atendimento em todo o Brasil e para brasileiros no exterior.">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PMPF38SV');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -37,6 +38,7 @@
 </style>
 </head>
 <body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PMPF38SV" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- ============ HEADER FIXO ============ -->
 <header style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(27,26,23,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(201,169,97,0.35)">
@@ -371,7 +373,7 @@
     <div style="flex: 1 1 240px; min-width: 220px; display: flex; flex-direction: column; gap: 14px">
       <p style="margin: 0; font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; color: #C9A961; font-weight: 600">Contato</p>
       <a class="cta-whatsapp btn-wa" href="#" target="_blank" rel="noopener" style="padding: 12px 22px; font-size: 15px; align-self: flex-start">Falar no WhatsApp</a>
-      <a class="foot-link" href="#">Política de Privacidade</a>
+      <a class="foot-link" href="politica-de-privacidade.html">Política de Privacidade</a>
     </div>
   </div>
   <div style="max-width: 1160px; margin: 40px auto 0; border-top: 1px solid rgba(201,169,97,0.25); padding-top: 22px; display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-size: 13px; color: rgba(247,244,237,0.55)">
@@ -390,7 +392,13 @@
 <script>
   var WA_NUMERO = "5519991310577";
   var waLink = "https://wa.me/" + WA_NUMERO + "?text=" + encodeURIComponent("Olá! Vim pelo site e gostaria de uma avaliação sobre holding familiar.");
-  document.querySelectorAll("a.cta-whatsapp").forEach(function (a) { a.href = waLink; });
+  document.querySelectorAll("a.cta-whatsapp").forEach(function (a) {
+    a.href = waLink;
+    a.addEventListener("click", function () {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "clique_whatsapp" });
+    });
+  });
 
   document.querySelectorAll(".faq-item").forEach(function (item) {
     item.querySelector(".faq-btn").addEventListener("click", function () {
@@ -412,6 +420,8 @@
     var t = document.getElementById("f-tel").value.trim();
     var m = document.getElementById("f-msg").value.trim();
     var txt = "Olá! Meu nome é " + (n || "—") + " (tel: " + (t || "—") + "). " + (m || "Gostaria de uma avaliação sobre holding familiar.");
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: "clique_whatsapp" });
     window.open("https://wa.me/" + WA_NUMERO + "?text=" + encodeURIComponent(txt), "_blank");
   });
 </script>
